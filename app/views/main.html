@@ -1,0 +1,23 @@
+<div class="main">
+    <div class="titleBox">
+        <h1> Lista de cosas que hacer: </h1>
+    </div>
+    <div class="newTasksBox">
+        <form ng-submit="addTodo()">
+            <input type="text" id="toDoBox" ng-model="newTaskText" placeholder="¿ Que tienes que hacer hoy ?"/>
+
+            <div class="buttonBox">
+                <button class="btn btn-primary btn-lg" id="addButton">Añadir</button>
+            </div>
+        </form>
+    </div>
+    <div class="taskListBox">
+        <ul id="taskList">
+            <li class="task"  ng-repeat="task in tasks" >
+                <input type="checkbox" class="doneCheck" ng-model="task.done">
+                <span class="taskText done-{{ task.done }}">{{ task.text }}</span><span class="taskDate">({{ task.date | date:'short' }})</span>
+                <button type="button" class="btn btn-danger" ng-click="delete(task)">Borrar</button>
+            </li>
+        </ul>
+    </div>
+</div>
